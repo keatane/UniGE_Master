@@ -1,0 +1,78 @@
+    1  ping www.google.com
+    2  exit
+    3  sudo apt update
+    4  sudo apt upgrade
+    5  reboot
+    6  echo >
+    7  exit
+    8  reboot
+    9  exit
+   10  whoami
+   11  pwd
+   12  cd Desktop/
+   13  echo ciao > hello.txt
+   14  cat hello.txt 
+   15  dd he
+   16  xxd hello.txt 
+   17  hexdump hello.txt 
+   18  strings hello.txt 
+   19  sudo apt install binutils
+   20  logout
+   21  reboot
+   22  whoami
+   23  strings
+   24  sudo apt install binutils
+   25  cd Desktop/
+   26  strings hello.txt 
+   27  ascii /t
+   28  ascii -t
+   29  echo 'obase=16;10' | bc
+   30  bc
+   31  python
+   32  python3
+   33  exit
+   34  reboot
+   35  shutdown
+   36  shutdown -c
+   37  poweroff
+   38  cd Desktop/
+   39  cat hello.txt 
+   40  exit
+   41  poweroff
+   42  losetup -f 
+   43  ls -a
+   44  losetup -r image.dd
+   45  losetup -r loop13
+   46  losetup -r /dev/loop13 
+   47  losetup -a
+   48  losetup -r /dev/loop0 image.dd
+   49  sudo losetup -r /dev/loop0 image.dd
+   50  sudo losetup -r /dev/loop15 image.dd
+   51  losetup -a
+   52  losetup -f
+   53  fdisk -l /dev/loop15
+   54  sudo fdisk -l /dev/loop15
+   55  md5sum /dev/loop15
+   56  sudo md5sum /dev/loop15
+   57  dd if=/dev/loop15 of=test.dd bs=512
+   58  sudo dd if=/dev/loop15 of=test.dd bs=512
+   59  sudo md5sum test.dd 
+   60  sudo dd if=/dev/loop15 of=test.dd bs=512 | tee image.dd | hashdeep -c md5,sha1 > image.src_hash
+   61  sudo apt install hashdeep
+   62  sudo dd if=/dev/loop15 of=test.dd bs=512 | tee image.dd | hashdeep -c md5,sha1 > image.src_hash
+   63  ls -a
+   64  sudo dd if=/dev/loop15 of=test.dd bs=512 | tee newimage.dd | hashdeep -c md5,sha1 > image.src_hash
+   65  sudo dd if=/dev/loop15 bs=512 | tee newimage.dd | hashdeep -c md5,sha1 > image.src_hash
+   66  more image.src_hash 
+   67  sudo dd if=/dev/loop15 bs=512 | tee newimage.dd | sha256sum  > image.src_hash
+   68  more image.src_hash 
+   69  sha256sum newimage.dd 
+   70  sha256sum image.dd
+   71  sudo dmsetup create bad_disk << EOF
+   72  ls -a
+   73  ls -la /dev/mapper/bad_disk
+   74  poweroff
+   75  history
+   76  cd Desktop/
+   77  ll
+   78  history > history_1.txt

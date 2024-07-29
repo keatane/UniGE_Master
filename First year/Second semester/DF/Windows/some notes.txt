@@ -1,0 +1,85 @@
+REGISTY EDITOR (is like a db)
+
+
+keys, values {name (label), type, data}
+with transaction logs try to keep consistency, maybe still not written in the hive
+
+SAM in regedit
+security account management (e.g. account data creaton)
+
+SOFTWARE
+software settings
+
+USER
+user settings
+ntuser.dat is the registry of the user
+
+-------------------------------------------
+
+bookmarks are the most important keys
+
+we can see "inconsistency", for example login of administrator before creation, notice that recovery image copies all the configurations on creations, but the "login" may be fake (e.g. the brand written the instruction to create stuff in recovery part)
+
+MFT contains info about timestamps in UTC	
+if modified timestamp is before creation time it means that the file has been copied  (creation time == time of paste, modified is preserved)
+accessed timestamp is also changed if copied
+modified timestamp is updated only when content change (no rename or copying)
+moving file (e.g. deleting to the bin) doesn't change timestamps
+
+install date - seconds unix epoch (1970)
+install time - milliseconds from 1-1-1601, more granularity
+
+controlset: os settings loaded, by looking at select (and retrieving current, and refering to the correct controlset(n))
+autorun: app that runs on boot (not login)
+
+for network info, see Interfaces and NetworkSetup2 in SYSTEM and NetworkList in SOFTWARE, note that timestamp "local" is saved in local time (e.g. here we have US disk, so UTC-5, we need to add 5 to the hours to have UTC+0)
+for software info, see Uninstall (TWO folders, one for 64 and one for 32 (WOW64on32)) in SOFTWARE; here we are in hives, those application are installed for every user in the pc, for specific-user-only installation we use NTUSER registry (from appdata)
+
+in the NTUSER (in user folder) we have the user activities: installed app, recentDocs, open/lastsave mru, userassist
+in recent docs we have an extension for every kind of file opened recently
+the first value MRUList serves as pointer to ordered list of all the files, picking 4 blocks at time (hexadecimal 15 -> 16^1 *1 + 16^0 * 5)
+in recent docs last write time of the key (e.g. .html), is the last opened file (the most recent, opened from the explorer or double clicking); in recent docs they are ordered independently from the file extension; for the file that I don't know, I can write a zone between the two last docs of different extension opened (see WOLF Awesome file). All this time tracking is from GUI, if cmd open file no timestamps are updated
+
+NOTE: with bookmark duplicate keys can appear: they are just different pointers to the same content
+
+ComDlg32:
+last visited: last folder opened (visited) per app
+open save: last opened file per extension, when opened with options "Open" or "Save As" and so via Command Dialog window, note that the timestamp can also represent the one of a file that has been downloaded (and so asked to where to save the file)
+
+userassist tracks which app (executable) we run and how we run them, via fixed keys; tracks each double-clicked app info and time opened (CEBF); for lnks (collegamento) F4E5; focus times are resetted by windows sometimes (so just "at least" affirmations); 
+note: we need to find the most recent, moreover since shortcuts (lnks) open executables, usually the exec times of exe and ink are the same, but they can also be resetted
+the run counter of exe should include also the run counter of ink
+app without extension are app (appx) from microsoft store, called "registered apps", maybe that is called through a ink
+when "chrome.exe" is clicked, it means from its direct folder
+
+lnk files / shortcuts are shell items (pointers to other files)
+recent files are non-exe file created as pointers to the original on, the original path, timestamp and size (also metadata of target files); present in the AppData\Roaming\Microsoft\Windows\Recent
+date created is when the original file was opened for the first time, the data modified is the last time the file was opened
+i can find proof of present filesystem (e.g. removable) even if not currently linked
+if files are deleted, lnk can persists
+note that via explorer windows crop up to 149 lnk file, but many more can be present (e.g. see through ftk imager)
+
+jump lists files are automatic destinations (created by windows when opening a certain file with a certain app) or custom destinations (custom actions, e.g. opening browser in incognito or powerpoint with certain template) created for each single app, which tracks recent files have opened; in this case source creation and source modified is relative to the automatic destination, not the file; the last modified timestamp refers to the last time the file was opened
+both jump lists and lnk files are kept often even if the original file is deleted
+
+shellbags (shellitems for folder (bag), MRU - most recently used) store preferences (e.g. how user sees icons), created by simply browsing the folder (and kept also when folder are deleted), so we can track the accessed folder
+USRCLASS.DAT stores bags informations, only if accessed by explorer; while if folder is accessed by lnk (e.g. from desktop) those info will go in the NTUSER.DAT.
+Note that also external devices folder access are tracked: first/last interacted; if first=last it's just one access
+shellbags can't be completely disabled as much like as jump lists, since they are part of the core windows (the view etc.)
+
+usb devices: volume serial number is important, randomly generated when creating the volume (or reformat), is stored in registry but also in lnk and jump lists; so we can correlate the physical drive with the access I found
+those info are in SYSTEM registry, we have in ENUM\USB for each key the usb that has been connected: VID - vendor id, PID - product id, the following number in the subfolder is the physical serial number; DeviceDesc tells if we have talking about storage, mouse etc.
+if storage we can go in USBSTOR with some more information: the "rev" is the firmware version; in the properties we can get in {83..} the first connection of the usb timestamp in 00000064 (fixed); last driver update after first connection 00000065, 00000066 last connection, 00000067 last removal (safe and unsafe, may be not present if removed while shutted down)
+in SOFTWARE EMDMgmt, after the physical serial number we have a number that is the decimal value of the volume serial number (that need to be converted into hex, and we can find it when we analyze the files), before the '_' we have the volume name
+
+prefetch is feature that increase sys performances by preloading parts of library and code, one file per executable that need certain libraries; creation date is the first execution of exe while last modified is when the exe has been run for the last time; also we know how many run of the exe and the timestamp of the eight last runs; if a file is opened for at least 10 seconds, it will marked as "useful " (even if it is not an exe) to prefetch even if the files are in an external drive or deleted
+we have more files for the same exe (but with different hashes as second part of name) for each set of parameters we launch the exe (e.g. chrome in incognito)
+note that this in Windows folder, we do not know in prior the user, we need to check who logged in that time
+the last run time (that is the exact time of last start of the exe with certain parameters) in the pf may not correspond to the last source modified timestamp, since it may be 10 or more seconds after (when the pf is created, in this case we can observe the creation time)
+
+for google deselect cache and cookies from the extracted xlsl; see also preferences section with last directories used to save files, extension etc.; stay on timeline for assignment
+
+C:\Users\<username>\AppData\Roaming\Skype
+SQLite db
+Skype log viewer
+https://www.nirsoft.net/utils/skype_log_view.html

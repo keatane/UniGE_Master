@@ -1,0 +1,32 @@
+<h3>Understanding Network Robustness</h3>
+<p>Network robustness refers to a network's ability to maintain its functionality and structural integrity even after facing disruptions or attacks. It's a crucial aspect in various fields, from ensuring the internet stays up during outages to understanding how diseases spread through a population.</p>
+<p><br></p>
+<h4><strong>Facing the Attack</strong></h4>
+<p>There are two main attack strategies:</p>
+<ol>
+    <li><strong>Random failures:</strong> Nodes or connections randomly drop out of the network.</li>
+    <li><strong>Targeted attacks:</strong> Specific, critical nodes are deliberately removed to cause maximum disruption.</li>
+</ol>
+<p>Targeted attacks are generally considered more damaging. By removing key nodes, an attacker can significantly disrupt network flow or even isolate entire sections.</p>
+
+
+<h4><strong>Percolation Theory in Play</strong></h4>
+<p>Percolation theory helps us understand how failures or attacks can cause a network to drastically change its behavior. Imagine a network as a grid, where removing nodes is like removing pieces. At a certain point (the critical threshold), the network becomes fragmented, and information can no longer flow efficiently. Also the giant component disappears.</p>
+
+
+<h4><strong>The Molloy-Reed Criterion</strong></h4>
+<p>The Molloy-Reed criterion is a mathematical framework used to predict the critical threshold for random failures in random graphs. It helps us understand how likely it is for a network to become fragmented after a certain number of nodes are removed. Moreover we know a random network has a&nbsp;<span style="font-size:0.9375rem;">giant component if and only if &lt;k<sup>2</sup>&gt;/&lt;k&gt; &gt; 2.</span></p>
+
+
+<h4><strong>Critical Threshold and Diameter</strong></h4>
+<p>The critical threshold is the tipping point at which the network's functionality dramatically changes. As nodes or connections are removed, the diameter, which represents the maximum number of steps needed to travel between any two nodes, typically increases. Beyond the critical threshold, the diameter can skyrocket, making communication across the network very difficult.</p>
+
+
+<h4><strong>Scale-Free Graphs and their Achilles Heel</strong></h4>
+<p>Many real-world networks, like the internet, exhibit a scale-free property. This means they have a few highly connected hubs and many less connected nodes. While these networks are surprisingly robust against random failures, they are vulnerable to targeted attacks. Removing a single hub can have a cascading effect, disrupting large portions of the network. This vulnerability is sometimes referred to as the Achilles heel of such networks.</p>
+
+
+<h4><strong>The Internet's Achille's Heel</strong></h4>
+<p>While the internet is generally robust against random failures, it has its Achilles heels. Critical infrastructure points, like major internet exchange points (hubs), are potential targets for attacks that could disrupt large portions of the network. Additionally, the reliance on a relatively small number of key internet service providers creates vulnerabilities.</p>
+<p><br></p>
+<p>By understanding network robustness, we can design and manage networks that are more resilient to disruptions and attacks. This is crucial for maintaining the smooth operation of critical infrastructure and ensuring the continued functionality of the interconnected world we live in.</p>

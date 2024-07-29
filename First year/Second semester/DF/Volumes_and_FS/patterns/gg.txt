@@ -1,0 +1,8 @@
+boot code -> only in the mbr
+partition table entries -> yes
+boot flag -> no, depends on boot code
+partition type -> no, depends on for ext types
+chs -> no,
+lba -> o,
+size -> yes,
+signature -> no

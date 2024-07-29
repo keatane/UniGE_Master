@@ -1,0 +1,20 @@
+struct gpt_header {
+    u64 signature_value;
+    u32 version;
+    u32 size_gpt_header;
+    u32 crc32_checksum;
+    u32 reserved;
+    u64 lba_current_gpth;
+    u64 lba_backup_gpth;
+    u64 lba_start_partition_area;
+    u64 lba_end_partition_area;
+    u64 disk_guid;
+    u64 lba_start_partition_table;
+    u32 num_entries;
+    u32 size_each_entry;
+    u32 crc32_checksum_partition_table;
+    u64 reserved_to_the_end_sect;
+    
+};
+
+gpt_header header @ 0;

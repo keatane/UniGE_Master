@@ -1,0 +1,28 @@
+struct chs{
+u8 chs[3];
+};
+
+enum part_types : u8 {
+    fat16=4,
+    ext_part_chs=5,
+    ext_part= 15
+};
+
+struct p_entry {
+    u8 boot_indicator;
+    chs start;
+    part_types part_type;
+    chs end;
+    u32 lba_start;
+    u32 lba_count;
+};
+
+struct boot_sector {
+    u8 boot_code[0x1b8];
+    u32 disk_signature;
+    padding[2];
+    p_entry p_entries[4];
+    
+};
+
+boot_sector b @ 0;

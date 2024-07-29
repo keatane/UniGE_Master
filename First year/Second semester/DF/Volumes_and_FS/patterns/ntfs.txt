@@ -1,0 +1,16 @@
+struct vbr{
+padding[11];
+u16 byte_per_sector;
+u8 sector_per_cluster;
+u16 reserved_sectors;
+u8 unused[5];
+u8 media_desc;
+u16 unused2;
+u64 unused3;
+u32 unused4;
+u32 unused5;
+u64 total_sector;
+u64 mft_starting_cluster;
+};
+
+vbr v @ 0;

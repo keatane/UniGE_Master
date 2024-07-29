@@ -1,0 +1,14 @@
+#include <fat.pat>
+#include<std/io>
+
+fat::boot_sector12_16 vbr @ 0;
+u32 fat1 = vbr.reserved_area_size;
+u32 fat_size = vbr.FAT_size_or_0_for_FAT32;
+u32 fat2 = fat1 + fatsize;
+u32 root_dir = fat2 + fat_size;
+u32 cluster_2 = rootdir + vbr.max_files_root*32 / vbr.bytes_per_sector;
+fat::dir_entry root_entries[while(std::mem::read_unsigned($,16)!=0)] @ root_dir * vbr.bytes_per_sector;
+//std::print("fat1={}-{} fat2={}-{}, root-dir/data-area={}, cluster_2={}", fat1, fat1+fat_size-1, fat2);
+u16 fat_entries[200] @ fat1 * vbr_bytes_per_sector;
+
+u16 fat_entries[200] @ fat1 * vbr.bytes_per_sector;

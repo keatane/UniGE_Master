@@ -1,0 +1,24 @@
+SAM\Domains\Account\Users - info about login stuff
+SYSTEM\Select - info about boot
+SYSTEM\CurrentControlSet\Control\ComputerName
+SYSTEM\CurrentControlSet\Control\TimeZoneInfo
+SYSTEM\CurrentControlSet\Control\Windows - shutdown time
+SYSTEM\CurrentControlSet\Services
+SYSTEM\CurrentControlSet\Services\TcpIp\Parameters\Interfaces - info about connected ip
+SOFTWARE\Microsoft\Windows\CurrentVersion\Run - app that run at boot
+SOFTWARE\Microsoft\WindowsNT\CurrentVersion - info about OS
+SOFTWARE\Microsoft\WindowsNT\CurrentVersion\NetworkList - list of connections
+SOFTWARE\Microsoft\WindowsNT\CurrentVersion\Uninstall - list of installed app 64bit
+SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall - list of installed app 32bit
+NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Uninstall - app installed for just the user
+NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
+NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\LastVisitedPIDMRU - last path opened per exe
+NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSavePIDMRU - open with per exe
+NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist - tracks which exe run and how (CEBF via double click or F4E5 via lnk)
+%USERS%\<username>\AppData\Roaming\Microsoft\Windows\Recent - for lnks
+USRCLASS.DAT\LocalSettings\Software\Microsoft\Windows\Shell\Bags(MRU) - tracks shellbags via explorer and also from external devices
+NTUSER.DAT\Software\Microsoft\Windows\Shell\Bags(MRU) - tracks shellbags from lnk (so e.g. desktop access) and also from external devices
+SYSTEM\CurrentControlSet\Enum\USB - for info on connected usb devices
+SYSTEM\CurrentControlSet\Enum\USBStor\<device>\<serial number>\Properties\{83...}\00..64 - connection info about a device
+SOFTWARE\Microsoft\WindowsNT\CurrentVersion\EMDGmt - volume name and other info
+C:\Users\<username>\AppData\Local\Google\Chrome\UserData\Default - info about Google Chrome

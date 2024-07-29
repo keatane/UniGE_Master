@@ -1,0 +1,177 @@
+    1  dir
+    2  ll
+    3  cd ..
+    4  ll
+    5  bc
+    6  cd ..
+    7  ll
+    8  cd usr/
+    9  ll
+   10  curl parrot.live
+   11  ll
+   12  ll src/
+   13  cd ..
+   14  ll
+   15  cd home/
+   16  ll
+   17  cd keat/
+   18  ll
+   19  bc
+   20  sudo apt install bc
+   21  exit
+   22  ll
+   23  mkdir test
+   24  ll
+   25  exit
+   26  ll
+   27  exit
+   28  cat
+   29  ll
+   30  cd test/
+   31  touch hello.txt
+   32  cat
+   33  vi hello.txt 
+   34  cat hello.txt 
+   35  bc
+   36  xxd hello.txt 
+   37  strings hello.txt 
+   38  hexdump hello.txt 
+   39  lscpu
+   40  echo 'obase=16;10'| bc
+   41  echo 'obase=2;10'| bc
+   42  ll
+   43  cd ..
+   44  ll
+   45  cd /mnt/c/Users/<ubuntu.username>/Pictures
+   46  cd /mnt/c/Users/keat/Pictures
+   47  cd /mnt/c/usr/keat/Pictures
+   48  cd /mnt/
+   49  ll
+   50  cd es
+   51  cd wsl
+   52  ll
+   53  cd ..
+   54  cd c
+   55  ll
+   56  cd Users/
+   57  ll
+   58  cd kavan/
+   59  cd ll
+   60  ll
+   61  cd OneDrive
+   62  ll
+   63  cd Desktop/
+   64  ll
+   65  strings spaghetti.png 
+   66  strings spaghetti.png | grep flag
+   67  ll
+   68  exit
+   69  cls
+   70  clear
+   71  lsblk
+   72  ll
+   73  unxz --keep two-partitions.dd.xz 
+   74  sha256sum two-partitions.dd
+   75  fdisk 
+   76  sudo apt install fdisk
+   77  apt install fdisk
+   78  sudo apt install fdisk
+   79  fdisk
+   80  fdisk -x two-partitions.dd
+   81  losetup --list
+   82  losetup --find --show --partscan two-partitions.dd
+   83  sudo losetup --find --show --partscan two-partitions.dd
+   84  losetup --list
+   85  ls -l /dev/loop0
+   86  ls -l /dev/loop0*
+   87  mkdir a b
+   88  sudo mount /dev/loop0 a
+   89  sudo mount /dev/loop0p1 a
+   90  sudo mount /dev/loop0p2 b
+   91  ll a b
+   92  cat a/hello.txt 
+   93  cat b/wikipedia.txt 
+   94  clear
+   95  history
+   96  sudo losetup --detach-all
+   97  ls -l /dev/loop0*
+   98  sudo losetup --list
+   99  sudo losetup --detach-all
+  100  sudo losetup --list
+  101  ll a
+  102  sudo mount two-partitions.dd a
+  103  mkdir c
+  104  sudo mount two-partitions.dd c
+  105  exit
+  106  ll
+  107  sudo losetup --detach-all
+  108  losetup --list
+  109  sudo umount a
+  110  sudo umount b
+  111  ll
+  112  cat a
+  113  ll a
+  114  losetup detach-all
+  115  losetup --detach-all
+  116  losetup --list
+  117  sudo mount -oro,offset=512 two-partitions.dd
+  118  sudo mount -oro,offset=512 two-partitions.dd.
+  119  sudo mount -oro,offset=512 two-partitions.dd a
+  120  losetup --list
+  121  ll /dev/loop0*
+  122  ll a
+  123  fdisk two-partitions.dd
+  124  fdisk --show --partscan two-partitions.dd
+  125  fdisk --partscan two-partitions.dd
+  126  history | grep fdisk
+  127  fdisk --show --partscan two-partitions.dd
+  128  fdisk -x two-partitions.dd
+  129  umount a
+  130  sudo umount a
+  131  ll a
+  132  ll
+  133  rm -r a b c
+  134  ll test/
+  135  cat test/hello.txt 
+  136  rm -r two-partitions.dd
+  137  history | grep xz
+  138  unxz --keep two-partitions.dd.xz 
+  139  rm -r test/
+  140  ll
+  141  ewfmount
+  142  sudo apt install ewf-tools
+  143  sudo apt install libewf
+  144  ewfmount
+  145  sudo apt update
+  146  sudo apt install ewf-tools
+  147  ewfmount
+  148  touch ciao > hello.txt
+  149  stat hello.txt 
+  150  ll hello.txt 
+  151  vi hello.txt 
+  152  stat hello.txt 
+  153  ll
+  154  cat ciao
+  155  rm ciao 
+  156  vi hello.txt 
+  157  stat hello.txt 
+  158  img_stat
+  159  sudo apt install sleuthkit
+  160  stat hello.txt 
+  161  img_stat
+  162  img_stat two-partitions.dd
+  163  fdisk two-partitions.dd
+  164  fdisk -x two-partitions.dd
+  165  img_cat two-partitions.dd
+  166  strings two-partitions.dd
+  167  strings two-partitions.dd | grep secret
+  168  cat two-partitions.dd
+  169  img_cat two-partitions.dd
+  170  img_cat two-partitions.dd | md5sum
+  171  cat two-partitions.dd | md5sum
+  172  mmstat two-partitions.dd
+  173  mmls two-partitions.dd
+  174  exit
+  175  history
+  176  ll
+  177  history > history2.txt
