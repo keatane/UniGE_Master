@@ -1,0 +1,420 @@
+[
+    {
+        "id": "ad1fa7a462fa3c35",
+        "type": "tab",
+        "label": "Assignment 6",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d47a927a920a46b8",
+        "type": "ui_chart",
+        "z": "ad1fa7a462fa3c35",
+        "name": "",
+        "group": "d40844a1c62c803a",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Time series",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1010,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7b24d18518f18765",
+        "type": "ui_gauge",
+        "z": "ad1fa7a462fa3c35",
+        "name": "",
+        "group": "d40844a1c62c803a",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Current value",
+        "label": "C",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "1",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1000,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "9ce2338f946b51b9",
+        "type": "ui_button",
+        "z": "ad1fa7a462fa3c35",
+        "name": "",
+        "group": "d40844a1c62c803a",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Clear all data",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 690,
+        "y": 300,
+        "wires": [
+            [
+                "d47a927a920a46b8"
+            ]
+        ]
+    },
+    {
+        "id": "95a0a0080a7b48f8",
+        "type": "mqtt in",
+        "z": "ad1fa7a462fa3c35",
+        "name": "",
+        "topic": "dibris/userid2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c943fd5df21a7ad6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 400,
+        "wires": [
+            [
+                "eac4f36ba062c279",
+                "7ee82c42b9237b6c"
+            ]
+        ]
+    },
+    {
+        "id": "26bc59cdf8328b87",
+        "type": "mqtt out",
+        "z": "ad1fa7a462fa3c35",
+        "name": "",
+        "topic": "dibris/userid2",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c943fd5df21a7ad6",
+        "x": 1330,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "1def14460430aa1c",
+        "type": "delay",
+        "z": "ad1fa7a462fa3c35",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1150,
+        "y": 80,
+        "wires": [
+            [
+                "26bc59cdf8328b87",
+                "1d6e0e47f70d7adb"
+            ]
+        ]
+    },
+    {
+        "id": "f7d4b390b5cf6ca2",
+        "type": "split",
+        "z": "ad1fa7a462fa3c35",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 810,
+        "y": 80,
+        "wires": [
+            [
+                "03220f1d0cded941"
+            ]
+        ]
+    },
+    {
+        "id": "1d6e0e47f70d7adb",
+        "type": "debug",
+        "z": "ad1fa7a462fa3c35",
+        "name": "debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1310,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "bb3d1ab9e49801b5",
+        "type": "function",
+        "z": "ad1fa7a462fa3c35",
+        "name": "dataprocessing",
+        "func": "for (var obj of msg.payload) {\n    if (obj.userid == \"2\")\n    msg.payload = obj.value\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 80,
+        "wires": [
+            [
+                "f7d4b390b5cf6ca2"
+            ]
+        ]
+    },
+    {
+        "id": "4ec1bb5edfed70ae",
+        "type": "json",
+        "z": "ad1fa7a462fa3c35",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 450,
+        "y": 80,
+        "wires": [
+            [
+                "bb3d1ab9e49801b5"
+            ]
+        ]
+    },
+    {
+        "id": "7708ef0c148db624",
+        "type": "file in",
+        "z": "ad1fa7a462fa3c35",
+        "name": "",
+        "filename": "data.json",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 300,
+        "y": 80,
+        "wires": [
+            [
+                "4ec1bb5edfed70ae"
+            ]
+        ]
+    },
+    {
+        "id": "9561a324d3c56132",
+        "type": "inject",
+        "z": "ad1fa7a462fa3c35",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "7708ef0c148db624"
+            ]
+        ]
+    },
+    {
+        "id": "7ee82c42b9237b6c",
+        "type": "ui_worldmap",
+        "z": "ad1fa7a462fa3c35",
+        "group": "d40844a1c62c803a",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "lat": "50",
+        "lon": "50",
+        "zoom": "2",
+        "layer": "OSMG",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "hide",
+        "layers": "hide",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "true",
+        "coords": "none",
+        "showgrid": "false",
+        "showruler": "false",
+        "allowFileDrop": "false",
+        "path": "/worldmap",
+        "overlist": "DR,CO,RA,DN,HM",
+        "maplist": "OSMG,OSMC,EsriC,EsriS,EsriT,EsriDG,UKOS",
+        "mapname": "",
+        "mapurl": "",
+        "mapopt": "",
+        "mapwms": false,
+        "x": 1000,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "03220f1d0cded941",
+        "type": "function",
+        "z": "ad1fa7a462fa3c35",
+        "name": "dataprocessing",
+        "func": "msg.payload = { \"name\":msg.payload, \"lat\":Math.random() * 180 - 90, \"lon\":Math.random() * 360 - 180}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 980,
+        "y": 80,
+        "wires": [
+            [
+                "1def14460430aa1c"
+            ]
+        ]
+    },
+    {
+        "id": "eac4f36ba062c279",
+        "type": "function",
+        "z": "ad1fa7a462fa3c35",
+        "name": "dataprocessing",
+        "func": "msg.payload = msg.payload.name;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 400,
+        "wires": [
+            [
+                "7b24d18518f18765",
+                "d47a927a920a46b8"
+            ]
+        ]
+    },
+    {
+        "id": "d40844a1c62c803a",
+        "type": "ui_group",
+        "name": "Assignment_6",
+        "tab": "a5409d677b08f29c",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c943fd5df21a7ad6",
+        "type": "mqtt-broker",
+        "name": "mqtt.eclipseprojects.io",
+        "broker": "mqtt.eclipseprojects.io",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a5409d677b08f29c",
+        "type": "ui_tab",
+        "name": "Assignment6",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
