@@ -1,0 +1,10 @@
+18 mag 2024, 16:27:28 - Warning: Method name duplicate in PO: EditContentPage the method set_ID_jsposition is renamed in  set_ID_jsposition_1
+18 mag 2024, 16:27:28 - Warning: For PO:MenuPage method selectContent and click_LINKTEXT_Content unified under the name click_LINKTEXT_Content since bodies and paramters list are identical
+18 mag 2024, 16:27:28 - Warning: For PO:EditContentPage method selectContent and click_LINKTEXT_Content unified under the name click_LINKTEXT_Content since bodies and paramters list are identical
+18 mag 2024, 16:27:28 - Warning: For PO:EditContentPage method testParentsetSuccessfully and click_CSSSELECTOR_linth_child7sidebar_button unified under the name click_CSSSELECTOR_linth_child7sidebar_button since bodies and paramters list are identical
+18 mag 2024, 16:27:28 - Warning: Method name duplicate in PO: EditContentPage the method click_ID_jsparent is renamed in  click_ID_jsparent_1
+18 mag 2024, 16:27:28 - Warning: Method name duplicate in PO: MenuPage the method selectNewContent is renamed in  selectNewContent_1
+18 mag 2024, 16:27:28 - Warning: For PO:MenuPage method selectContent and click_LINKTEXT_Content unified under the name click_LINKTEXT_Content since bodies and paramters list are identical
+18 mag 2024, 16:27:28 - Warning: For PO:EditContentPage method selectContent and click_LINKTEXT_Content unified under the name click_LINKTEXT_Content since bodies and paramters list are identical
+18 mag 2024, 16:27:28 - Warning: For PO:MenuPage method selectContent and click_LINKTEXT_Content unified under the name click_LINKTEXT_Content since bodies and paramters list are identical
+18 mag 2024, 16:27:28 - Warning: For PO:EditUserDetailsPage method verifyInstagramAdded and verifyFacebookAdded unified under the name verifyFacebookAdded since bodies and paramters list are identical
