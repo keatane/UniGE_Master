@@ -1,0 +1,34 @@
+Denial of service attack (DDoS)
+by flooding (many packets)
+by exploit (packets not well interpreted, high computation)
+
+Flooding (Transport layer):
+Syn flood dos attack (scapi library in python):
+It exploites the tcp handshake, by sending lots of 'syn', expiring the server resources for handling connection requests
+-> can be sent by spoofing different with different ip addresses, if network provider allow to
+Today less effective thanks to syn cookies for subsequent requests numbers that the server stores.
+Tens of thousands of connection necessary (0-65535)
+
+Slowdos attack (Application layer) - a middle attack between exploit and flooding based attack
+Apache2 web servers for example handles only 150 connection per time
+SSH 6 connections per time
+So we complete the three way handshake and send data.
+We create connections and send a packed, then we sleep for an amount of time and just before the server closes the connection we send another packet maintaining open the connection, then again.
+The amount of time of connection held opened for 300 seconds. If at 299 I send a couple of bytes the connection is held opened. This for 150 connections simultaneously.
+ex Slowloris (Long request dos) (for HTTP(S)):
+Send data that are like the following packet:
+GET / HTTP/1.1 /r/n
+Host: ... /r/n
+User-Agent: .../r/n
+Content-Length: 42/r/n -> the server waits for 42 bytes (in the body payload); can be removed: the server waits for an empty line /r/n, that is never sent, so I can send data in the body payload.
+[42 bytes] -> never sent, wait the connection timeout (Wait Timeout)
+and then send an additional parameter in the header:
+X-a:b /r/n
+and after 299 secs :
+X-a:b /r/n
+and again...
+In this way the connection is kept up.
+
+Other attacks:
+Slowcomm (works also in mobile devices): 
+We have the connections creations and the data: as payload just a space to keep the connection alive. This payload is not verified by the server, so also SSH and other protocols can be targeted too.

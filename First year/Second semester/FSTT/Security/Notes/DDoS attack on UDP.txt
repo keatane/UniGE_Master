@@ -1,0 +1,9 @@
+DDoS attack on UDP
+
+UDP has no sessions and no handshake.
+We can exploit by sending specific packet spooging (using) the ip of the service to the intermediary (e.g. server that hold sessions) of the service; the intermediary will send the packet to the service.
+The size of the first packet is much lower than the size of the second one -> Amplification attack (+ Reflection, done by the intermediary) with factor F=P2/P1
+
+An example could be send to a intermediary dns a simple dns query to have the entire zone of information contained replied to the service (amplification). If the equation of the bandwidth F*Ba >= Bs the attack succeed.
+
+If the original attacker bandwidth is not enough, we can perform a DrDDos (Distributed), so the attacker holds more hosts (called Bots/Zombies) that send request to one or more indermediary that execute a coordinate attack to the service victim. The network between the attacker, the coordinator node (attack -> coordinator -> bots) and the bots is called Botnet. This case can holds more and different factors. Bots can be retrieved from malwares.
