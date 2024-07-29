@@ -1,0 +1,51 @@
+var1 = "This is var1"
+var2 = "This is var2"
+
+### configuration parameters ###
+KEY_FILE = "C:\\users\\kavan\\Documents\\VMWare_Machines\\id_rsa.pub"
+KEY_FILE2 = "C:\\users\\kavan\\Documents\\VMWare_Machines\\vh.conf"
+KEY_FILE3 = "C:\\users\\kavan\\Documents\\VMWare_Machines\\ssl-virtualhost.conf"
+DOMAIN = "test.local"
+
+DBNAME="wordpress"
+DBUSER="wordpressuser" 
+DBPASS="password"
+
+Vagrant.configure("2") do |config|
+ # https://app.vagrantup.com/boxes/search
+ config.vm.box = "generic/ubuntu2204"
+ config.vm.hostname = "VCC1"
+ config.vm.base_mac = "00:0c:29:8b:0a:68"
+ # check the network address on your VMware installation (NAT network)
+ config.vm.base_address = "192.168.139.10"
+
+22
+# use different host ports when multiple VMs run
+ config.vm.network :forwarded_port,
+guest: 22, host: 2200, id: 'ssh'
+ config.vm.provider :vmware_workstation do |v|
+ v.gui = true
+ v.vmx['displayname'] = 'VCC1'
+ v.vmx["memsize"] = "4096"
+ v.vmx["numvcpus"] = "4"
+ end
+
+ # upload my pub key
+ config.vm.provision "pubkey", type: "file", source: KEY_FILE, destination: "/tmp/id_pub"
+ config.vm.provision "addpubkey", type: "shell", :path => 'setup_pubkey.sh', privileged: false
+
+ # lamp stack
+ config.vm.provision "addlamp", type: "shell", :path => 'setup_lamp.sh'
+
+ # virtual host
+ config.vm.provision "addconf", type: "file", source: KEY_FILE2, destination: "/tmp/" + DOMAIN + ".conf"
+ config.vm.provision "virtual1", type: "shell", :path => 'virtual1.sh', :args => [DOMAIN]
+
+ # https
+ config.vm.provision "addsslconf", type: "file", source: KEY_FILE3, destination: "/tmp/" + DOMAIN + "-ssl.conf"
+ config.vm.provision "ssl", type: "shell", :path => 'ssl.sh', :args => [DOMAIN]
+
+ # wordpress 1
+ config.vm.provision "wordpress", type: "shell", :path => 'wordpress.sh', :args => [DBNAME, DBUSER, DBPASS, DOMAIN]
+
+end

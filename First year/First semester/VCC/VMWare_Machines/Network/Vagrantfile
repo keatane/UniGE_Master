@@ -1,0 +1,71 @@
+KEY_FILE_PATH = "C:\\users\\kavan\\Documents\\id_rsa.pub"
+Vagrant.configure("2") do |config|
+ config.vm.define "net1" do |net1|
+ net1.vm.box = "generic/ubuntu2204"
+
+ net1.vm.hostname = "VCC-net1"
+ net1.vm.base_mac = "00:0c:29:8b:0a:70"
+ # check the network address on your VMware installation (NAT network)
+ net1.vm.base_address = "192.168.139.11"
+ net1.vm.network :forwarded_port, guest: 22, host: 2201, id: 'ssh'
+ net1.vm.provider :vmware_workstation do |v|
+ v.gui = true
+ v.vmx["displayname"] = 'VCC-net1'
+ v.vmx["memsize"] = "2048"
+ v.vmx["numvcpus"] = "2"
+
+ # eth0
+ v.vmx["ethernet1.present"] = "TRUE"
+ v.vmx["ethernet1.addresstype"] = "static"
+ v.vmx["ethernet1.address"] = "00:0c:29:8b:0a:70"
+ v.vmx["ethernet1.connectiontype"] = "NAT"
+ #v.vmx["ethernet1.pciSlotNumber"] = "32"
+
+ # eth1
+ # VMnet10 is a user-defined custom network without DHCP and
+ v.vmx["ethernet0.present"] = "TRUE"
+ v.vmx["ethernet0.addresstype"] = "generated"
+ v.vmx["ethernet0.connectiontype"] = "custom"
+ v.vmx["ethernet0.vnet"] = "VMnet10"
+ #v.vmx["ethernet0.pciSlotNumber"] = "160"
+ end
+
+ if File.exist?(KEY_FILE_PATH)
+ net1.vm.provision :file, :source => "#{KEY_FILE_PATH}", :destination => "/tmp/id.pub"
+ net1.vm.provision :shell, :inline => "cat /tmp/id.pub >> ~vagrant/.ssh/authorized_keys", :privileged => false
+ end
+ net1.vm.provision :shell, :inline => "apt update; apt install bridge-utils"
+ end
+ config.vm.define "net2" do |net2|
+    net2.vm.box = "generic/ubuntu2204"
+   
+    net2.vm.hostname = "VCC-net2"
+    net2.vm.base_mac = "00:0c:29:8b:0b:70"
+    # check the network address on your VMware installation (NAT network)
+    net2.vm.base_address = "192.168.139.12"
+    net2.vm.network :forwarded_port, guest: 22, host: 2202, id: 'ssh'
+    net2.vm.provider :vmware_workstation do |v|
+    v.gui = true
+    v.vmx["displayname"] = 'VCC-net2'
+    v.vmx["memsize"] = "2048"
+    v.vmx["numvcpus"] = "2"
+   
+    # eth0
+    v.vmx["ethernet1.present"] = "TRUE"
+    v.vmx["ethernet1.addresstype"] = "static"
+    v.vmx["ethernet1.address"] = "00:0c:29:8b:0b:70"
+    v.vmx["ethernet1.connectiontype"] = "custom"
+    v.vmx["ethernet1.vnet"] = "VMnet10"
+    # eth1
+    v.vmx["ethernet0.present"] = "TRUE"
+    v.vmx["ethernet0.addresstype"] = "generated"
+    v.vmx["ethernet0.connectiontype"] = "custom"
+    v.vmx["ethernet0.vnet"] = "VMnet9"
+    end
+   
+    if File.exist?(KEY_FILE_PATH)
+    net2.vm.provision :file, :source => "#{KEY_FILE_PATH}", :destination => "/tmp/id.pub"
+    net2.vm.provision :shell, :inline => "cat /tmp/id.pub >> ~vagrant/.ssh/authorized_keys", :privileged => false
+    end
+    end
+   end
