@@ -1,0 +1,16 @@
+18 mag 2024, 22:12:05 - Warning: For PO:StatesPage method click_ID_page_header_desc_state_new_state and addState unified under the name addState since bodies and paramters list are identical
+18 mag 2024, 22:12:05 - Warning: Method name duplicate in PO: StatesPage the method addState is renamed in  addState_1
+18 mag 2024, 22:12:05 - Warning: Method name duplicate in PO: AddNewStatePage the method set_CSSSELECTOR_ollinth_child1 is renamed in  set_CSSSELECTOR_ollinth_child1_1
+18 mag 2024, 22:12:05 - Warning: Method name duplicate in PO: ProductsPage the method addProduct is renamed in  addProduct_1
+18 mag 2024, 22:12:05 - Warning: Method name duplicate in PO: DashboardPage the method ClickCatalog is renamed in  ClickCatalog_1
+18 mag 2024, 22:12:05 - Warning: For PO:ProductsPage method verifyChangeSuccess and verifyAddingProductSuccessfully unified under the name verifyAddingProductSuccessfully since bodies and paramters list are identical
+18 mag 2024, 22:12:05 - Warning: For PO:ProductsPage method addProduct and click_ID_page_header_desc_product_new_product unified under the name click_ID_page_header_desc_product_new_product since bodies and paramters list are identical
+18 mag 2024, 22:12:05 - Warning: For PO:ProductsPage method addProduct and click_ID_page_header_desc_product_new_product unified under the name click_ID_page_header_desc_product_new_product since bodies and paramters list are identical
+18 mag 2024, 22:12:05 - Warning: The method declaration checkReducedRetailPriceWithTax in the pageObject: AddProductPage is empty. So it will be discharged
+18 mag 2024, 22:12:05 - Warning: Method name duplicate in PO: AddProductPage the method setPreTaxRetailPrice is renamed in  setPreTaxRetailPrice_1
+18 mag 2024, 22:12:05 - Warning: Method name duplicate in PO: DashboardPage the method ClickCatalog is renamed in  ClickCatalog_2
+18 mag 2024, 22:12:06 - Warning: For PO:DashboardPage method ClickCatalog and ClickCatalog_2 unified under the name ClickCatalog_2 since bodies and paramters list are identical
+18 mag 2024, 22:12:06 - Warning: For PO:ProductFeaturesPage method click_CSSSELECTOR_page_header_desc_feature_new_featureprocess_icon_new and addFeature unified under the name addFeature since bodies and paramters list are identical
+18 mag 2024, 22:12:06 - Warning: The method declaration checkRedBox in the pageObject: ProductFeaturesPage is empty. So it will be discharged
+18 mag 2024, 22:12:06 - Warning: Method name duplicate in PO: ProductFeaturesPage the method addFeature is renamed in  addFeature_1
+18 mag 2024, 22:12:06 - Warning: Method name duplicate in PO: DashboardPage the method ClickCatalog is renamed in  ClickCatalog_3
