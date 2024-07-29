@@ -1,0 +1,484 @@
+{
+  "id": "b269b6a5-0918-463a-84eb-de723604cd96",
+  "version": "2.0",
+  "name": "HandsOn",
+  "url": "https://bonigarcia.dev/selenium-webdriver-java/loading-images.html",
+  "tests": [{
+    "id": "b9ef9eb8-bedd-4327-a323-397da77d04b4",
+    "name": "TestTitleWebForm",
+    "commands": [{
+      "id": "715a11fe-ed8f-4cbd-b2da-bbaf9d7523a7",
+      "comment": "",
+      "command": "open",
+      "target": "https://bonigarcia.dev/selenium-webdriver-java/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ff145a4f-c148-4869-9004-add46d44f442",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1048",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "308b6894-4359-4423-a57a-a20128b51cdc",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Web form",
+      "targets": [
+        ["linkText=Web form", "linkText"],
+        ["css=.row:nth-child(4) > .col-md-4:nth-child(1) .btn:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Web form')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'web-form.html')]", "xpath:href"],
+        ["xpath=//div[4]/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Web form')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "22f9b202-5692-4e5e-b8c8-b293c2ef3d1a",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.display-4",
+      "targets": [
+        ["css=.display-4", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Hands-On Selenium WebDriver with Java')]", "xpath:innerText"]
+      ],
+      "value": "Hands-On Selenium WebDriver with Java"
+    }, {
+      "id": "74b38a25-e875-41e5-834f-9184edd94221",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "03b6ae49-65ad-482d-8b00-efa0c8950319",
+    "name": "TestSuccessfulLogin",
+    "commands": [{
+      "id": "c2245644-6d2b-406c-8479-958522ecdd3d",
+      "comment": "",
+      "command": "open",
+      "target": "https://bonigarcia.dev/selenium-webdriver-java/login-form.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "39198461-48fb-4dc5-aab8-d312ccf601f6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "974x1032",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c7328634-dd9d-44f0-9745-6955257e614e",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3a755435-aef7-4b13-8dde-ac9f26f32f5e",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "user"
+    }, {
+      "id": "14027414-504b-44a0-acd7-e6c50c64e6af",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//label[2]/input", "xpath:position"]
+      ],
+      "value": "user"
+    }, {
+      "id": "894b07b7-1e4d-4a69-a75d-413bb2d3b922",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(4)",
+      "targets": [
+        ["css=.row:nth-child(4)", "css:finder"],
+        ["xpath=//div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d725a816-dc2b-47e9-8ca4-90825d2bc579",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Submit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e583c320-f803-4e20-80a9-7c3d176826bf",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=success",
+      "targets": [
+        ["id=success", "id"],
+        ["css=#success", "css:finder"],
+        ["xpath=//div[@id='success']", "xpath:attributes"],
+        ["xpath=//div[4]/div/div", "xpath:position"]
+      ],
+      "value": "Login successful"
+    }, {
+      "id": "79cc93df-0107-4bf8-93e1-588bb191f286",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "f36969db-c164-4683-8ddf-b637e05b9152",
+    "name": "TestFailedLogin",
+    "commands": [{
+      "id": "1f6a8d1a-4dee-49a7-848e-f831c8af558b",
+      "comment": "",
+      "command": "open",
+      "target": "https://bonigarcia.dev/selenium-webdriver-java/login-form.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ae1a0ced-33a0-4a04-b25a-f7a83e37b789",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "974x1032",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f2646ed6-7186-4605-a088-b37e6fdf214e",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "91023efd-9fa4-4871-9a84-e5f34c58feb1",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "user"
+    }, {
+      "id": "f355e35f-87ef-4509-8d8e-95422d332f16",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//label[2]/input", "xpath:position"]
+      ],
+      "value": "abc"
+    }, {
+      "id": "3d0a3a34-7da5-4243-88b1-786e53cc21d1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(4)",
+      "targets": [
+        ["css=.row:nth-child(4)", "css:finder"],
+        ["xpath=//div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "665adb1e-8e08-4db3-804c-e0c1bf41eb3c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Submit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3a2a0386-715b-4cb9-bc82-d4d96f1314a5",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=invalid",
+      "targets": [
+        ["id=invalid", "id"],
+        ["css=#invalid", "css:finder"],
+        ["xpath=//div[@id='invalid']", "xpath:attributes"],
+        ["xpath=//div[5]/div/div", "xpath:position"]
+      ],
+      "value": "Invalid credentials"
+    }, {
+      "id": "6ff268be-2b4d-40a6-a094-d79cd6566691",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "06fd6659-d32a-482f-80e5-a669ca2da17a",
+    "name": "TestSlowCalculator",
+    "commands": [{
+      "id": "85d037c2-6754-4079-8389-848245f821ad",
+      "comment": "",
+      "command": "open",
+      "target": "https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6dcf420a-0894-4ccf-90ff-8a943591e83a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "974x1032",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5af2b6a6-37b1-4cdf-be7b-3598fcbe9f9c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(6)",
+      "targets": [
+        ["css=.btn:nth-child(6)", "css:finder"],
+        ["xpath=//div[@id='calculator']/div[2]/span[6]", "xpath:idRelative"],
+        ["xpath=//span[6]", "xpath:position"],
+        ["xpath=//span[contains(.,'5')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d54ed4ff-afd5-432a-a5a8-4c627147ce68",
+      "comment": "",
+      "command": "click",
+      "target": "css=.operator:nth-child(4)",
+      "targets": [
+        ["css=.operator:nth-child(4)", "css:finder"],
+        ["xpath=//div[@id='calculator']/div[2]/span[4]", "xpath:idRelative"],
+        ["xpath=//span[4]", "xpath:position"],
+        ["xpath=//span[contains(.,'+')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0998cdb1-eb9a-446a-8cf1-e1ef076405fd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(10)",
+      "targets": [
+        ["css=.btn:nth-child(10)", "css:finder"],
+        ["xpath=//div[@id='calculator']/div[2]/span[10]", "xpath:idRelative"],
+        ["xpath=//span[10]", "xpath:position"],
+        ["xpath=//span[contains(.,'2')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5b076614-7759-4c31-9997-20a902cbdc7a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-outline-warning",
+      "targets": [
+        ["css=.btn-outline-warning", "css:finder"],
+        ["xpath=//div[@id='calculator']/div[2]/span[15]", "xpath:idRelative"],
+        ["xpath=//span[15]", "xpath:position"],
+        ["xpath=//span[contains(.,'=')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "55230a16-3569-4975-98a6-8a50fe86a729",
+      "comment": "",
+      "command": "pause",
+      "target": "5000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a14da032-d39d-422b-aa62-268ed1ecd8c9",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.screen",
+      "targets": [
+        ["css=.screen", "css:finder"],
+        ["xpath=//div[@id='calculator']/div/div", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div/div/div", "xpath:position"]
+      ],
+      "value": "7"
+    }, {
+      "id": "a1fcb001-6eea-4dc1-ab97-223a3537f55d",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "42e341b0-6f3d-46c0-a56e-085f83689bd2",
+    "name": "TestLoadingImages",
+    "commands": [{
+      "id": "69f57840-867f-42d6-b31b-2f9824900862",
+      "comment": "",
+      "command": "open",
+      "target": "https://bonigarcia.dev/selenium-webdriver-java/loading-images.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "aabaea37-5a12-4fc8-8b7b-80e09e3c70fa",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "974x1032",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e637809d-c447-42fa-8589-720ff6e78608",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "id=compass",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "adfe9ecc-efa1-4cd9-a57d-a62a220b4e7c",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=compass",
+      "targets": [
+        ["id=compass", "id"],
+        ["css=#compass", "css:finder"],
+        ["xpath=//img[@alt='compass']", "xpath:img"],
+        ["xpath=//img[@id='compass']", "xpath:attributes"],
+        ["xpath=//div[@id='image-container']/img", "xpath:idRelative"],
+        ["xpath=//div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e48eb10e-22b8-473f-9eaf-a044a1c10e6c",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "id=calendar",
+      "targets": [
+        ["id=calendar", "id"],
+        ["css=#calendar", "css:finder"],
+        ["xpath=//img[@alt='calendar']", "xpath:img"],
+        ["xpath=//img[@id='calendar']", "xpath:attributes"],
+        ["xpath=//div[@id='image-container']/img[2]", "xpath:idRelative"],
+        ["xpath=//img[2]", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "3c27eff3-ae8a-49bc-950b-be21a19e7e89",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=calendar",
+      "targets": [
+        ["id=calendar", "id"],
+        ["css=#calendar", "css:finder"],
+        ["xpath=//img[@alt='calendar']", "xpath:img"],
+        ["xpath=//img[@id='calendar']", "xpath:attributes"],
+        ["xpath=//div[@id='image-container']/img[2]", "xpath:idRelative"],
+        ["xpath=//img[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "38ce0059-a507-4684-adc3-78c62ad29a24",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "id=award",
+      "targets": [
+        ["id=award", "id"],
+        ["css=#award", "css:finder"],
+        ["xpath=//img[@alt='award']", "xpath:img"],
+        ["xpath=//img[@id='award']", "xpath:attributes"],
+        ["xpath=//div[@id='image-container']/img[3]", "xpath:idRelative"],
+        ["xpath=//img[3]", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "c4e46a6e-7cd0-40ef-b356-280c36798257",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=award",
+      "targets": [
+        ["id=award", "id"],
+        ["css=#award", "css:finder"],
+        ["xpath=//img[@alt='award']", "xpath:img"],
+        ["xpath=//img[@id='award']", "xpath:attributes"],
+        ["xpath=//div[@id='image-container']/img[3]", "xpath:idRelative"],
+        ["xpath=//img[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "eabb525e-78d8-4c8b-a886-330f0829e82d",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "id=landscape",
+      "targets": [
+        ["id=landscape", "id"],
+        ["css=#landscape", "css:finder"],
+        ["xpath=//img[@alt='landscape']", "xpath:img"],
+        ["xpath=//img[@id='landscape']", "xpath:attributes"],
+        ["xpath=//div[@id='image-container']/img[4]", "xpath:idRelative"],
+        ["xpath=//img[4]", "xpath:position"]
+      ],
+      "value": "30000"
+    }, {
+      "id": "913dae3b-65bc-4540-839e-c4eb60828204",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=landscape",
+      "targets": [
+        ["id=landscape", "id"],
+        ["css=#landscape", "css:finder"],
+        ["xpath=//img[@alt='landscape']", "xpath:img"],
+        ["xpath=//img[@id='landscape']", "xpath:attributes"],
+        ["xpath=//div[@id='image-container']/img[4]", "xpath:idRelative"],
+        ["xpath=//img[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c6173bf2-3ab4-449e-ab77-5c95bb3c684a",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "c4177020-4fe3-4126-b37f-8219e3bd5bba",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["b9ef9eb8-bedd-4327-a323-397da77d04b4"]
+  }],
+  "urls": ["https://bonigarcia.dev/", "https://bonigarcia.dev/selenium-webdriver-java/", "https://bonigarcia.dev/selenium-webdriver-java/login-form.html", "https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html", "https://bonigarcia.dev/selenium-webdriver-java/loading-images.html"],
+  "plugins": []
+}
